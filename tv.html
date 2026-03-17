@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>TV Online</title>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="channels.js"></script>
+<script src="tv.js"></script>
+
+<style>
+body{
+background:#000;
+margin:0;
+font-family:Arial;
+color:white;
+}
+
+#player{
+width:100%;
+height:60vh;
+}
+
+#info{
+padding:15px;
+background:#111;
+}
+
+#canal{
+font-size:22px;
+font-weight:bold;
+}
+
+#programa{
+font-size:18px;
+margin-top:5px;
+color:#aaa;
+}
+
+#hora{
+margin-top:8px;
+color:#777;
+}
+</style>
+
+</head>
+
+<body>
+
+<div id="player"></div>
+
+<div id="info">
+<div id="canal"></div>
+<div id="programa"></div>
+<div id="hora"></div>
+</div>
+
+</body>
+</html>
