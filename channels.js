@@ -1,14 +1,41 @@
 const canales = [
 {
   nombre: "CIUDADES",
-  playlist: "PLCKML06wO4bnsJRlpO_YycBsJaqE_RfqL"
+  videos: [
+    "VIDEO_ID_1",
+    "VIDEO_ID_2",
+    "VIDEO_ID_3"
+  ],
+  duraciones: [
+    600,
+    720,
+    540
+  ]
 },
 {
   nombre: "HISTORIA",
-  playlist: "PLCKML06wO4blGfodaIFpQirOfS1Vna6rL"
+  videos: [
+    "VIDEO_ID_4",
+    "VIDEO_ID_5",
+    "VIDEO_ID_6"
+  ],
+  duraciones: [
+    800,
+    900,
+    700
+  ]
 },
 {
   nombre: "UNIVERSO",
-  playlist: "PLCKML06wO4blWKoFOvTcBLI0P5GxTRG45"
+  videos: [
+    "VIDEO_ID_7",
+    "VIDEO_ID_8",
+    "VIDEO_ID_9"
+  ],
+  duraciones: [
+    1000,
+    850,
+    920
+  ]
 }
 ];
