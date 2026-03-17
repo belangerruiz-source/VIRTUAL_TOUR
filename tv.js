@@ -12,7 +12,7 @@ async function obtenerVideos(playlistId) {
 }
 
 async function obtenerDuraciones(ids) {
-  const API_KEY = "TU_API_KEY";
+  const API_KEY = "AIzaSyDsCEmTUrXyr7E8RJQqbZt4AV0IN9XQHiI";
 
   const url = `https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=${ids.join(",")}&key=${API_KEY}`;
 
