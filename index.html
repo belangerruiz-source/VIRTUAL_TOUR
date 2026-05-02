@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Virtual Tour - Sevilla</title>
+
+<style>
+body {
+  margin: 0;
+  background: black;
+  color: white;
+  font-family: Arial;
+  overflow: hidden;
+}
+
+#viewer {
+  width: 100%;
+  height: 100vh;
+  border: none;
+  transition: opacity 1s;
+}
+
+#overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  padding: 15px;
+  text-align: center;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<iframe id="viewer"></iframe>
+
+<div id="overlay">
+  <h2 id="titulo"></h2>
+  <p id="desc"></p>
+  <button onclick="iniciar()">▶ Iniciar</button>
+  <button onclick="siguiente()">⏭</button>
+</div>
+
+<script>
+let paso = 0;
+
+const recorrido = [
+  {
+    titulo: "Aeropuerto de Sevilla",
+    desc: "Bienvenido a Sevilla",
+    link: "https://www.google.com/maps?q=&layer=c&cbll=37.4189,-5.8931"
+  },
+  {
+    titulo: "Entrando a la ciudad",
+    desc: "Avanzando hacia el centro",
+    link: "https://www.google.com/maps?q=&layer=c&cbll=37.4000,-5.9000"
+  },
+  {
+    titulo: "Centro histórico",
+    desc: "Llegando a la Catedral",
+    link: "https://www.google.com/maps?q=&layer=c&cbll=37.3861,-5.9924"
+  },
+  {
+    titulo: "La Giralda",
+    desc: "Icono de Sevilla",
+    link: "https://www.google.com/maps?q=&layer=c&cbll=37.3860,-5.9922"
+  },
+  {
+    titulo: "Real Alcázar",
+    desc: "Final del recorrido",
+    link: "https://www.google.com/maps?q=&layer=c&cbll=37.3830,-5.9900"
+  }
+];
+
+function cargarPaso() {
+  const viewer = document.getElementById("viewer");
+  viewer.style.opacity = 0;
+
+  setTimeout(() => {
+    viewer.src = recorrido[paso].link;
+    document.getElementById("titulo").innerText = recorrido[paso].titulo;
+    document.getElementById("desc").innerText = recorrido[paso].desc;
+    viewer.style.opacity = 1;
+  }, 500);
+}
+
+function iniciar() {
+  paso = 0;
+  autoplay();
+}
+
+function siguiente() {
+  paso++;
+  if (paso < recorrido.length) cargarPaso();
+}
+
+function autoplay() {
+  cargarPaso();
+
+  let intervalo = setInterval(() => {
+    paso++;
+    if (paso >= recorrido.length) {
+      clearInterval(intervalo);
+      return;
+    }
+    cargarPaso();
+  }, 4000);
+}
+</script>
+
+</body>
+</html>
